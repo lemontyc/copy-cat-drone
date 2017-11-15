@@ -8,7 +8,7 @@ from geometry_msgs.msg import Twist
 def controller_cb(data):
     global controller_pos_Y
     controller_pos_Y = data.pose.position.y
-    
+
 def drone_cb(data):
     global drone_pos_Y
     drone_pos_Y = data.pose.position.y
@@ -17,11 +17,11 @@ def altitude():
     global controller_pos_Y
     global drone_pos_Y
     global msg
-    
+
     controller_pos_Y = float()
     drone_pos_Y = float()
     msg = Twist()
-    
+
     # Publishers
     pub_takeoff= rospy.Publisher("ardrone/takeoff", Empty, queue_size=10 )
     pub_land = rospy.Publisher("ardrone/land", Empty, queue_size=10 )
@@ -31,9 +31,10 @@ def altitude():
     rate = rospy.Rate(50) # 50hz
     rospy.Subscriber("vrpn_client_node/Quad1/pose", PoseStamped, controller_cb)
     rospy.Subscriber("vrpn_client_node/Quad2/pose", PoseStamped, drone_cb)
+
+
     
-    
-    
+
     while not rospy.is_shutdown():
         # Landed
         if controller_pos_Y < 0.1:
@@ -54,10 +55,9 @@ def altitude():
 
 
 
-        
+
         rate.sleep()
 
 
 if __name__ == '__main__':
     altitude()
-    
