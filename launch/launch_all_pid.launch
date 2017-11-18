@@ -15,11 +15,11 @@
      </node>
     
      <!-- Controller for drone's Y axis -->
-     <!--
+
     <node name="controller" pkg="pid" type="controller" ns="drone_y" output="screen" >
       <param name="node_name" value="drone_y_pid" />
-      <param name="Kp" value="0.5" />
-      <param name="Ki" value="0.1" />
+      <param name="Kp" value="0.05" />
+      <param name="Ki" value="0.01" />
       <param name="Kd" value="0.0" />
       <param name="upper_limit" value="0.2" />
       <param name="lower_limit" value="-0.2" />
@@ -29,7 +29,7 @@
       <param name="max_loop_frequency" value="55.0" />
       <param name="min_loop_frequency" value="45.0" />
      </node>
-    -->
+
     <!-- Controller for drone's Z axis -->
     
     <node name="controller" pkg="pid" type="controller" ns="drone_z" output="screen" >

@@ -46,11 +46,11 @@ def pid_publisher():
     # Drone X axis PID publisher
     pub_pid_state_x = rospy.Publisher("drone_x/state", Float64, queue_size=10 )
     pub_pid_setpoint_x = rospy.Publisher("drone_x/setpoint", Float64, queue_size=10 )
-    '''
+    
     # Drone Y axis PID publisher
     pub_pid_state_y = rospy.Publisher("drone_y/state", Float64, queue_size=10 )
     pub_pid_setpoint_y = rospy.Publisher("drone_y/setpoint", Float64, queue_size=10 )
-    '''
+    
     # Drone Z axis PID publisher
     pub_pid_state_z = rospy.Publisher("drone_z/state", Float64, queue_size=10 )
     pub_pid_setpoint_z = rospy.Publisher("drone_z/setpoint", Float64, queue_size=10 )
@@ -81,11 +81,11 @@ def pid_publisher():
         # Drone's X axis PID
         pub_pid_state_x.publish(position_drone.pose.position.z)
         pub_pid_setpoint_x.publish(position_controller.pose.position.z)
-        '''
+        
         # Drone's Y axis PID
-        pub_pid_state_y.publish(float(position_drone.pose.position.x - 0.9))
+        pub_pid_state_y.publish(float(position_drone.pose.position.x - 1.8))
         pub_pid_setpoint_y.publish(position_controller.pose.position.x )
-        '''
+        
         # Drone's Z axis PID
         pub_pid_state_z.publish(position_drone.pose.position.y)
         pub_pid_setpoint_z.publish(position_controller.pose.position.y)
